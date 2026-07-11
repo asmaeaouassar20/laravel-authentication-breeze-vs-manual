@@ -4,3 +4,15 @@
 - laravel 13.8
 
 
+### to start (hint cmds)
+```
+php artisan make:model Utilisateur -m
+
+php artisan make:enum UserRole
+
+Créer un trait HasProfilePhoto pour les photos de profile
+
+php artisan make:request LoginRequest
+
+php artisan make:request RegisterRequest
+```
