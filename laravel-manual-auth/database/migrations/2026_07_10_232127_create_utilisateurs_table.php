@@ -13,7 +13,18 @@ return new class extends Migration
     {
         Schema::create('utilisateurs', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestap('email_verified_at')->nullable();
+            $table->string('password');
+            $table->string('profile_photo_path')->nulable();
+            $table->string('role')->default('user');
+            $table->boolean('is_active')->default(true);
+            $table->timestamp('last_login_at')->nullable();
+            $table->string('last_login_ip')->nullable();
+            $table->rememberToken(); // ajoute une colonne remember_token pour la fonctionnalité "Se souvenir de moi".
+            $table->timestamps(); // ajoute created_at et updated_at.
+            $table->softDeletes(); // ajoute deleted_at pour les suppressions logiques (sans supprimer la ligne de la base).
         });
     }
 
